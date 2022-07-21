@@ -12,7 +12,7 @@ export const PokemonCard = ({ name, image, type, id, favorite }) => {
   const handleOnFavorite = () => {
     dispatch(setFavorite({ pokemonId: id }));
   };
-  console.log(favorite);
+
   return (
     <Card
       title={name}

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Col, Spin } from 'antd';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { Searcher } from './components/Searcher'
 import { PokemonList } from './components/PokemonList';
 import { getPokemon } from './api'
@@ -8,11 +8,10 @@ import { getPokemonsWithDetails, setLoading } from './actions';
 import logo from './statics/logo.svg'
 import './App.css';
 
-
 function App() {
 
-  const pokemons = useSelector((state) => state.pokemons);
-  const loading = useSelector((state) => state.loading);
+  const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
+  const loading = useSelector((state) => state.ui.loading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +22,6 @@ function App() {
       dispatch(getPokemonsWithDetails(pokemonsRes));
       dispatch(setLoading(false));
     }
-
     fetchPokemons();
   }, []);
 
@@ -42,6 +40,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
