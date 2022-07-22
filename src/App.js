@@ -11,12 +11,12 @@ function App() {
 
   const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
   const loading = useSelector((state) => state.ui.loading);
-
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(fetchPokemonsWhitDetails());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
