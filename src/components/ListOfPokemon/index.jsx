@@ -1,9 +1,11 @@
-import { PokemonCard } from "./PokemonCard";
-import "./PokemonList.css";
+// import { PokemonCard } from "./PokemonCard";
+import React from "react";
+import { PokemonCard } from "../PokemonCard";
+// import { Lista } from "./stylesPokemonList";
 
 export const PokemonList = ({ pokemons }) => {
   return (
-    <div className="PokemonList">
+    <div>
       {pokemons.map((pokemon) => {
         return (
           <PokemonCard
