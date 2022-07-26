@@ -16,18 +16,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
+        test: /\.(js|jsx)$/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react']
           }
-        }
-      },
-      {
-        test: /\.png/,
-        type: './src/assets'
+        },
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
