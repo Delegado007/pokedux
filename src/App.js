@@ -9,6 +9,8 @@ import { fetchPokemonsWhitDetails } from './slices/dataSlice';
 export const App = () => {
 
   const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
+  const searchedPokemons = useSelector((state) => state.data.pokemonsSearched, shallowEqual);
+  const valueImputSearch = useSelector((state) => state.ui.valueImputSearch);
   const loading = useSelector((state) => state.ui.loading);
   const dispatch = useDispatch();
 
@@ -21,7 +23,7 @@ export const App = () => {
     <div className="App">
       <Logo />
       <Searcher />
-      <PokemonList pokemons={pokemons} />
+      <PokemonList pokemons={pokemons} searchedPokemons={searchedPokemons} valueImputSearch={valueImputSearch} />
     </div>
   );
 }

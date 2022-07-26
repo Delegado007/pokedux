@@ -17,6 +17,7 @@ input {
   font-family: "Knewave", cursive;
   letter-spacing: 2px;
   text-transform: uppercase;
+
   &:focus {
     outline: none;
     ~ ul li {
@@ -42,6 +43,7 @@ input {
     }
   }
 }
+
 label {
   position: relative;
 }

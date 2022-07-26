@@ -1,6 +1,6 @@
 //este middleware imprime en consola lo que lleva nuestro action
 export const logger = (store) => (next) => (action) => {
-  console.log(action);
+
   next(action);
 }
 
