@@ -1,19 +1,20 @@
-// import { useDispatch } from "react-redux";
-// import { setFavorite } from "../slices/dataSlice";
-
+import { useDispatch } from "react-redux";
+import { setFavorite } from "../../slices/dataSlice";
 import React from "react";
+import { StarButton } from "../StarButton";
 import "./Styles.scss";
 
 export const PokemonCard = ({ name, image, type, id, favorite }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const typeSting = type.map((elem) => elem.type.name).join(", ");
 
-  // const handleOnFavorite = () => {
-  //   dispatch(setFavorite({ pokemonId: id }));
-  // };
+  const handleOnFavorite = () => {
+    dispatch(setFavorite({ pokemonId: id }));
+  };
 
   return (
     <div className="b-game-card">
+      <StarButton isFavorite={favorite} chanFavs={handleOnFavorite} />
       <div className="b-game-card__cover">
         <div>
           <h1>{name}</h1>
