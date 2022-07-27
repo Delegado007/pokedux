@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setSearch } from "../../slices/dataSlice";
 import { setValueImputSearch } from "../../slices/uiSlice";
-import { ContainerSearch } from "./styles";
 import "./stilos.scss";
 
 export const Searcher = () => {
@@ -19,7 +18,7 @@ export const Searcher = () => {
   }, [valueImput]);
 
   return (
-    <ContainerSearch>
+    <div className="list_container">
       <label>
         <input type="text" onChange={HandleSearch} />
         <ul>
@@ -31,6 +30,6 @@ export const Searcher = () => {
           <li h="">h</li>
         </ul>
       </label>
-    </ContainerSearch>
+    </div>
   );
 };

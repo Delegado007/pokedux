@@ -6,6 +6,7 @@ $c_1: #353540;
 .b-game-card {
   position: relative;
   z-index: 1;
+  font-size: 0.8rem;
   width: 230px;
   height: 300px;
   perspective: 1000px;
@@ -15,7 +16,7 @@ $c_1: #353540;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: s;
+    justify-content: space-evenly;
     position: absolute;
     z-index: 1;
     top: 0;
@@ -90,4 +91,8 @@ $c_1: #353540;
 
 .b-game-card img {
   width: 180px;
+}
+
+.b-game-card p {
+  font-size: 1rem;
 }

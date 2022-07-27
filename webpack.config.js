@@ -30,15 +30,24 @@ module.exports = {
         use: 'css-loader'
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      },
-      {
         test: /\.scss$/,
         use: [
           'style-loader',
           'css-loader',
           'sass-loader'
+        ]
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              limit: 10000,
+              mimetype: 'application/font-woff',
+            },
+          },
         ]
       }
     ]

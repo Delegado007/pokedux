@@ -1,9 +1,15 @@
+.list_container {
+  display: flex;
+  justify-content: center;
+}
+
 label {
   width: 300px;
   max-width: 300px;
 }
+
 input {
-  width: 200px;
+  width: 265px;
   display: flex;
   padding: 15px;
   margin: 30px auto;
@@ -49,8 +55,8 @@ label {
 }
 ul {
   position: absolute;
-  top: 83px;
-  left: 40px;
+  top: 81px;
+  left: 20px;
   margin: 0;
   list-style: none;
   padding-left: 22px;

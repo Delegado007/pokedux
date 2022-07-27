@@ -1,6 +1,9 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
+import { FontKnewave } from './fontKnewave';
 
 export const GlobalStyles = createGlobalStyle`
+  ${FontKnewave}
+  
   html {
     box-sizing: border-box;
     font-family: "Knewave", cursive;

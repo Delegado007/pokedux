@@ -4,7 +4,7 @@ import { Searcher } from './components/Search';
 import { PokemonList } from './components/ListOfPokemon';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { fetchPokemonsWhitDetails } from './slices/dataSlice';
-import { GlobalStyles } from './GlobalStyles';
+import { GlobalStyles } from './styles/GlobalStyles';
 
 export const App = () => {
 
