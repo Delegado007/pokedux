@@ -2,7 +2,7 @@
 // import { setFavorite } from "../slices/dataSlice";
 
 import React from "react";
-import { Card } from "./Styles";
+import "./Styles.scss";
 export const PokemonCard = ({ name, image, type, id, favorite }) => {
   // const dispatch = useDispatch();
   const typeSting = type.map((elem) => elem.type.name).join(", ");
@@ -13,17 +13,19 @@ export const PokemonCard = ({ name, image, type, id, favorite }) => {
   // const URL_IMAG =
   //   "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png";
   return (
-    <Card>
-      <div>
-        <h1>{name}</h1>
+    <div className="b-game-card">
+      <div className="b-game-card__cover">
+        <div>
+          <h1>{name}</h1>
+        </div>
+        <div>
+          <img src={image} alt="pokemon" />
+        </div>
+        <div>
+          <p>{typeSting}</p>
+        </div>
       </div>
-      <div>
-        <img src={image} alt="pokemon" />
-      </div>
-      <div>
-        <p>{typeSting}</p>
-      </div>
-    </Card>
+    </div>
 
     // <Card
     //   title={name}

@@ -6,7 +6,8 @@ import { compose, applyMiddleware, legacy_createStore as createStore } from 'red
 import { logger } from './middlewares';
 import thunk from 'redux-thunk';
 import { rootReducer } from './reducers/rootReducer';
-import './index.css';
+
+
 //con thunk podemos agregar logica asincrona a los actions creator
 
 const composeAlt = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

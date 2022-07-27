@@ -7,4 +7,7 @@ export const Card = styled.div`
   background-color: #eaeaea;
   margin: 5px;
   width: 230px;
+  perspective: 1000px;
+  z-index: 1;
+  
 `

@@ -6,13 +6,13 @@ input {
   width: 200px;
   display: flex;
   padding: 15px;
-  margin: 30px;
-  background-color: white;
+  margin: 30px auto;
+  background-color: #d3cada;
   border: 2px solid black;
   color: #111;
   font-size: 15px;
   box-shadow: 3px 1px 0px 2px, 0px -1px 0px 2px rgba(0, 0, 0, 0.62);
-  height: 20px;
+  height: 50px;
   transform: skew(-3deg, 1deg);
   font-family: "Knewave", cursive;
   letter-spacing: 2px;
@@ -49,8 +49,8 @@ label {
 }
 ul {
   position: absolute;
-  top: 85px;
-  left: 20px;
+  top: 83px;
+  left: 40px;
   margin: 0;
   list-style: none;
   padding-left: 22px;
@@ -78,7 +78,7 @@ ul {
       top: -40px;
     }
     &::after {
-      top: -80px;
+      top: -78px;
       transform: scale(0) rotate(210deg);
       filter: blur(20px);
     }
@@ -95,7 +95,7 @@ ul {
       &[#{$char}]::after {
         content: attr($char) quote($char);
         left: unquote($y + "px");
-        color: #666;
+        color: #d3cada;
       }
     }
   }

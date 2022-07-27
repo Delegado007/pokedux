@@ -4,7 +4,7 @@ import { Searcher } from './components/Search';
 import { PokemonList } from './components/ListOfPokemon';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { fetchPokemonsWhitDetails } from './slices/dataSlice';
-// import './App.css';
+import { GlobalStyles } from './GlobalStyles';
 
 export const App = () => {
 
@@ -21,10 +21,12 @@ export const App = () => {
 
   return (
     <div className="App">
+      <GlobalStyles />
       <Logo />
       <Searcher />
       <PokemonList pokemons={pokemons} searchedPokemons={searchedPokemons} valueImputSearch={valueImputSearch} />
     </div>
+
   );
 }
 

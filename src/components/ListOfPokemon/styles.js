@@ -19,6 +19,9 @@ export const Lista = styled.div`
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+
 `
 
 export const Div = styled.div`
