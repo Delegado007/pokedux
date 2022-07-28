@@ -102,4 +102,33 @@ $c_1: #353540;
   top: 13px;
   left: 195px;
   z-index: 54866;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  will-change: transform;
+  transform: skewX(0.001deg);
+  transition: transform 0.2s ease-in-out;
+  &::after {
+    transform: translateY(-20%);
+    will-change: transform;
+    transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+  }
+  &::before {
+    will-change: opacity;
+    transform-origin: top center;
+    transform: skewX(0.001deg);
+    transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out;
+  }
+}
+
+.b-game-card:hover svg {
+  transform: rotateX(7deg) translateY(-6px);
+
+  &::after {
+    transform: translateY(0%);
+  }
+}
+.b-game-card:hover::before {
+  opacity: 0.6;
+  transform: rotateX(7deg) translateY(-6px) scale(1.05);
 }
