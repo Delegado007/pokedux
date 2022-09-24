@@ -1,21 +1,27 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { setLoading } from './uiSlice';
 import { getPokemon, getPokemonDetails } from "../api";
+import { useSelector } from "react-redux";
 // import { setSearch } from "./searchSlice";
 
 const initialState = {
   pokemons: [],
   pokemonsSearched: [],
+  pagination: {
+    limit: 10,
+    offset: 0,
+  },
 }
+
 
 export const fetchPokemonsWhitDetails = createAsyncThunk(
   'data/fetchPokemonsWhitDetails',
-  async (_, { dispatch }) => {
+  async (paginationValues, { dispatch }) => {
     // dispatch loader
     // fetch
     // dispatch loader
     dispatch(setLoading(true))
-    const pokemonsRes = await getPokemon();
+    const pokemonsRes = await getPokemon(paginationValues.limit, paginationValues.offset);
     const pokemonsDetailed = await Promise.all(
       pokemonsRes.map((pokemon) => getPokemonDetails(pokemon))
     );
@@ -60,9 +66,12 @@ export const dataSlice = createSlice({
         state.pokemonsSearched = []
       }
     },
+    setPagination: (state, action) => {
+      state.pagination = action.payload
+    }
   },
 });
 
-export const { setFavorite, setPokemons, setSearch } = dataSlice.actions;
+export const { setFavorite, setPokemons, setSearch, setPagination } = dataSlice.actions;
 
 export default dataSlice.reducer;
