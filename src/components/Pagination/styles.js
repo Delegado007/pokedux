@@ -5,7 +5,7 @@ export const PaginationContainer = styled.div`
   justify-content: center;
   height: 50px;
   width: 100vw;
-   
+  margin-bottom: 15px;   
 `
 
 export const ButtonPagination = styled.div`
