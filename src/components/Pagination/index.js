@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PaginationContainer, ButtonPagination } from './styles';
 import { setPagination } from '../../slices/dataSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 export const Pagination = () => {
-  const pagination = useSelector((state) => state.data.Pagination);
+  const [isActive, setIsActive] = useState("true");
+  const pagination = useSelector((state) => state.data.pagination);
   const dispatch = useDispatch();
-  const chnageLimitAndOffset = (numberButton) => {
+
+  useEffect(() => {
+    const buttons = document.querySelector(`.button_pag`);
+    buttons.className += ' active';
+  }, [])
+
+
+  const chnageLimitAndOffset = (target, numberButton) => {
+    const buttons = document.querySelectorAll(`.button_pag`);
+    const buttonsAsArray = [...buttons]
     let newLimit = numberButton * 10;
     let newOffset = newLimit - 10;
     dispatch(setPagination({ limit: 10, offset: newOffset }));
+    buttonsAsArray.map((itemInArray) => {
+      if (itemInArray === target) {
+        itemInArray.className += ' active';
+      } else {
+        itemInArray.classList.remove("active");
+      }
+    })
 
   }
   return (
@@ -17,7 +34,7 @@ export const Pagination = () => {
       {[1, 2, 3, 4, 5].map((number, index) => (
 
         <ButtonPagination key={index}>
-          <button onClick={() => chnageLimitAndOffset(number)} >{number}</button>
+          <button className={`button_pag`} onClick={(event) => chnageLimitAndOffset(event.target, number)} >{number}</button>
         </ButtonPagination>
       ))
       }

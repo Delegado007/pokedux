@@ -3,7 +3,7 @@ import { Star } from "../icons/Star";
 import { StarFill } from "../icons/StarFill";
 
 export const StarButton = ({ isFavorite, chanFavs }) => {
-  console.log(isFavorite)
+
   return (
     isFavorite
       ?
@@ -14,8 +14,5 @@ export const StarButton = ({ isFavorite, chanFavs }) => {
       <button onClick={chanFavs}>
         <Star />
       </button>
-
-
-
   )
 };
