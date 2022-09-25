@@ -16,7 +16,7 @@ export const ButtonPagination = styled.div`
   height: 50px;
   width: 60px;
   & button {
-    font-family: "Knewave", cursive;
+    font-family: 'Righteous';
     background-color: #fda284;
     font-size: 1.2rem;
     margin: 5px;

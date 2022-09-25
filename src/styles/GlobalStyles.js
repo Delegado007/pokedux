@@ -1,12 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
-import { FontKnewave } from './fontKnewave';
+import { FontKnewave, FontRighteous } from './fontKnewave';
 
 export const GlobalStyles = createGlobalStyle`
   ${FontKnewave}
+  ${FontRighteous}
   
   html {
     box-sizing: border-box;
-    font-family: "Knewave", cursive;
+    font-family: 'Righteous';
   }
   ::-webkit-scrollbar {
     display: none;
