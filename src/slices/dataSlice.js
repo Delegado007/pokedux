@@ -13,7 +13,6 @@ const initialState = {
   },
 }
 
-
 export const fetchPokemonsWhitDetails = createAsyncThunk(
   'data/fetchPokemonsWhitDetails',
   async (paginationValues, { dispatch }) => {
@@ -27,7 +26,7 @@ export const fetchPokemonsWhitDetails = createAsyncThunk(
     );
     let pokemones = []
     pokemonsDetailed.map((elem) => {
-      let { name, id, types, sprites: { front_default } } = elem;
+      let { name, id, types, sprites: { other: { dream_world: front_default } } } = elem;
       pokemones.push({ name, id, types, image: front_default });
     })
     dispatch(setPokemons(pokemones));
