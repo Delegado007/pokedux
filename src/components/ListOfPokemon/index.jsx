@@ -35,7 +35,7 @@ export const PokemonList = ({
     );
   }
   return (
-    <Lista>
+    <Lista id="list_pokemons">
       {pokemons.map((pokemon) => {
         return (
           <PokemonCard

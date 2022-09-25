@@ -19,7 +19,6 @@ export const ButtonPagination = styled.div`
     font-family: 'Righteous';
     background-color: #fda284;
     font-size: 1.2rem;
-    margin: 5px;
     border-radius: 5px;
     width: 100%;
     height: 100%;
@@ -30,5 +29,10 @@ export const ButtonPagination = styled.div`
       box-shadow: rgb(52 52 52) 0px 3px 7px inset;
       background-color: #DEDEE3;
     }
+  }
+  & a {
+    margin: 5px;
+    height: 50px;
+    width: 60px;
   }
 `

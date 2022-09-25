@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-family: 'Righteous';
+    scroll-behavior: smooth;
   }
   ::-webkit-scrollbar {
     display: none;

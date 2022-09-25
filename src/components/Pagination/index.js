@@ -34,7 +34,9 @@ export const Pagination = () => {
       {[1, 2, 3, 4, 5].map((number, index) => (
 
         <ButtonPagination key={index}>
-          <button className={`button_pag`} onClick={(event) => chnageLimitAndOffset(event.target, number)} >{number}</button>
+          <a href="#list_pokemons">
+            <button className={`button_pag`} onClick={(event) => chnageLimitAndOffset(event.target, number)} >{number}</button>
+          </a>
         </ButtonPagination>
       ))
       }
