@@ -4,14 +4,50 @@ export const CardContainer = styled.div`
   position: relative;
   z-index: 1;
   font-size: 0.8rem;
-  width: 230px;
-  height: 300px;
+  width: 270px;
+  height: 330px;
   perspective: 1000px;
   margin: 30px;
+  
+  ${({ open }) => open
+    ? `transform: rotateY(180deg);
+      transition: 1s;
+      transition-timing-function: linear;
+       & .star {
+        opacity: 0;
+        transition-delay: 0.5s;
+        visibility: none;
+       }
+       & div div:nth-child(2), div div:nth-child(4)  {
+        opacity: 0;
+        transition-delay: 0.5s;
+        visibility: none;
+       }
+       & div div:nth-child(3)  {
+        opacity: 0.1;
+        transition-delay: 0.5s;
+       }
+       `
+    : `transform: rotate(0);
+       transition: 1s;
+       transition-timing-function: linear;
+       & .star {
+        opacity: 1;
+        transition-delay: 0.5s;
+       }
+       & div div:nth-child(2), div div:nth-child(4)  {
+        opacity: 1;
+        transition-delay: 0.5s;
+       }
+       & div div:nth-child(3)  {
+        opacity: 1;
+        transition-delay: 0.5s;
+       }
+       `};
   &:hover .b-game-card {
-    transform: rotateX(7deg) translateY(-6px);
+    transform: rotateX(6deg) translateY(-6px) rotateY(-2deg);
     &::after {
-      transform: translateY(0%);
+      transform: translateX(0%) translateY(0%) ;
     }
   }
   &::before {
@@ -104,7 +140,35 @@ export const TitlePokemon = styled.div`
   }
 `
 export const FotterCard = styled.div`
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+`
+
+export const RotateContainer = styled.div`
+  position: absolute;
+  background-color: #ff8a00;
+  z-index: 101;
+  bottom: 0px;
+  right: 0px;
+  padding: 6px 4px 4px 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px 0 0 0;
+  box-shadow: rgb(82, 16, 0) 0px 3px 7px inset;
+  & button {
+    background: none;
+    border: 0;
+    color: inherit;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  & svg {
+    width: 30px;
+    height: 30px;
+    fill: black;
+  }
 `
 
 
