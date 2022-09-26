@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-const c_1 = "#353540";
-
-
 export const CardContainer = styled.div`
   position: relative;
   z-index: 1;
@@ -43,7 +40,7 @@ export const CardCover = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   position: absolute;
   z-index: 1;
   top: 0;
@@ -86,7 +83,27 @@ export const CardCover = styled.div`
 
 
 export const ImgSvg = styled.img`
-  width: 180px;
+  display: block;
+  margin: auto;
+  height: 100%;
+  width: auto;
+  max-width: fit-content;
+  max-width: -moz-available;
+`
+
+export const ImgContainer = styled.div`
+  height: 210px;
+  width: 230px;
+`
+
+export const TitlePokemon = styled.div`
+  margin-top: 5px;
+  & h1::first-letter {
+    text-transform: uppercase;
+  }
+`
+export const FotterCard = styled.div`
+  margin-bottom: 5px;
 `
 
 

@@ -2,7 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setFavorite } from "../../slices/dataSlice";
 import { StarButton } from "../StarButton";
-import { CardContainer, CardCover, ImgSvg } from "./styles";
+import {
+  CardContainer,
+  CardCover,
+  ImgSvg,
+  ImgContainer,
+  TitlePokemon,
+  FotterCard,
+} from "./styles";
 
 export const PokemonCard = ({ name, image, type, id, favorite }) => {
   const dispatch = useDispatch();
@@ -16,15 +23,15 @@ export const PokemonCard = ({ name, image, type, id, favorite }) => {
     <CardContainer className="b-game-card">
       <CardCover className="b-game-card">
         <StarButton isFavorite={favorite} chanFavs={handleOnFavorite} />
-        <div>
+        <TitlePokemon>
           <h1>{name}</h1>
-        </div>
-        <div>
+        </TitlePokemon>
+        <ImgContainer>
           <ImgSvg src={image} alt="pokemon" />
-        </div>
-        <div>
+        </ImgContainer>
+        <FotterCard>
           <p>{typeSting}</p>
-        </div>
+        </FotterCard>
       </CardCover>
     </CardContainer>
 
