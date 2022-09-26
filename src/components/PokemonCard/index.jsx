@@ -34,13 +34,5 @@ export const PokemonCard = ({ name, image, type, id, favorite }) => {
         </FotterCard>
       </CardCover>
     </CardContainer>
-
-    // <Card
-    //   title={name}
-    //   cover={<img src={image} alt={name} />}
-    //   extra={<StarButton isFavorite={favorite} onClick={handleOnFavorite} />}
-    // >
-    //   <Meta description={typeSting} />
-    // </Card>
   );
 };

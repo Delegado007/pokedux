@@ -89,6 +89,7 @@ export const ImgSvg = styled.img`
   width: auto;
   max-width: fit-content;
   max-width: -moz-available;
+  max-width: -webkit-fill-available;
 `
 
 export const ImgContainer = styled.div`
