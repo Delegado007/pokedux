@@ -186,14 +186,15 @@ export const StatsContainer = styled.div`
   z-index: 102;
   position: absolute; 
   width: 270px;
-  height: 290px;
-  top: 0;
+  height: 330px;
+  top: 20px;
   right: 0;
   transform: rotateY(-180deg);
   & h2{
     margin-top: 5px;
     text-align: center;
   }
+  
 `
 
 export const Progress = styled.progress`
@@ -203,11 +204,55 @@ export const Progress = styled.progress`
 `
 export const ProgressElement = styled.div`
   width: 200px;  
-  margin: 0px auto 0px auto;
+  margin: auto;
+  &:nth-child(1) div {
+    &::before{
+      background: #000;
+      width: ${props => `calc(${props.value} * 100% / 267 );`};
+    }
+  }
+  &:nth-child(2) div {
+    &::before{
+      background: #02A73E;
+      width: ${props => `calc(${props.value} * 100% / 250);`};
+    }
+  }
+  &:nth-child(3) div {
+    &::before{
+      background: red;
+      width: ${props => `calc(${props.value} * 100% / 134);`};
+    } 
+  }
+  &:nth-child(4) div {
+    &::before{
+      background: #FDF21B;
+      width: ${props => `calc(${props.value} * 100% / 180);`};
+    } 
+  }
+  &:nth-child(5) div {
+    &::before{
+      background: #40B3FF;
+      width: ${props => `calc(${props.value} * 100% / 154);`};
+
+    } 
+  }
+  &:nth-child(6) div {
+    &::before{
+      background: #8C40FF;
+      width: ${props => `calc(${props.value} * 100% / 125);`};
+
+    } 
+  }
+  &:nth-child(7) div {
+    &::before{
+      background: #FF9340;
+      width: ${props => `calc(${props.value} * 100% / 130);`};
+    } 
+  }
 `
 export const ProgressContainer = styled.div`  
   border-radius: 6px;
-  overflow: hidden;  
+  overflow: hidden;
   position: relative;
   display: inline-block;
   background: #eee;
@@ -218,9 +263,9 @@ export const ProgressContainer = styled.div`
     top: 0;
     left: 0;
     height: 100%;
-    width: ${props => `calc(${props.value} * 100% / 267 );`};
-    background: #02a73e;
+    
   }
+    
 `
 
 

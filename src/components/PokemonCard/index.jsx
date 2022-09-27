@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { RotateCard } from "../../RotateCard";
@@ -40,6 +41,7 @@ export const PokemonCard = ({
     // console.log(cardSelected.classList);
     setIsRotated(!isRotated);
   };
+
   return (
     <CardContainer open={isRotated} className={`b-game-card-${id}`}>
       <CardCover className="b-game-card">
@@ -59,22 +61,21 @@ export const PokemonCard = ({
           </button>
         </RotateContainer>
         <StatsContainer>
-          <h2>Experience</h2>
-          <ProgressElement>
+          <ProgressElement value={experience}>
+            <h2>Stats</h2>
             <p>{experience} xp</p>
-            <ProgressContainer value={experience}>
+            <ProgressContainer>
               <Progress max="265" value={experience}>
                 {experience}
               </Progress>
             </ProgressContainer>
           </ProgressElement>
-          <h2>Stats</h2>
           {stats.map((stat) => {
             return (
-              <ProgressElement key={stat.stat.name}>
+              <ProgressElement key={stat.stat.name} value={stat.base_stat}>
                 <p>{`${stat.base_stat} ${stat.stat.name}`}</p>
-                <ProgressContainer value={stat.base_stat}>
-                  <Progress max="265" value={stat.base_stat}>
+                <ProgressContainer>
+                  <Progress max="110" value={stat.base_stat}>
                     {stat.base_stat}
                   </Progress>
                 </ProgressContainer>
