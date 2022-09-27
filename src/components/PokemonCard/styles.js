@@ -12,44 +12,44 @@ export const CardContainer = styled.div`
   ${({ open }) => open
     ? `transform: rotateY(180deg);
       transition: 1s;
-      transition-timing-function: linear;
+      
        & .star {
         opacity: 0;
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
         visibility: none;
        }
        & ${TitlePokemon}, ${FotterCard}  {
         opacity: 0;
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
         visibility: none;
        }
        & .img-svg  {
         opacity: 0.1;
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
        }
        & ${StatsContainer} {        
         opacity: 1;
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
        }
        `
     : `transform: rotate(0);
        transition: 1s;
-       transition-timing-function: linear;
+       
        & .star {
         opacity: 1;
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
        }
        & ${TitlePokemon}, ${FotterCard}  {
         opacity: 1;
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
        }
        & .img-svg  {
         opacity: 1;
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
        }
        & ${StatsContainer} {        
         opacity: 0;
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
        }
        `};
   &:hover .b-game-card {
