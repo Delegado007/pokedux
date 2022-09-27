@@ -5,7 +5,7 @@ export const CardContainer = styled.div`
   z-index: 1;
   font-size: 0.8rem;
   width: 270px;
-  height: 330px;
+  height: 380px;
   perspective: 1000px;
   margin: 30px;
   
@@ -18,13 +18,17 @@ export const CardContainer = styled.div`
         transition-delay: 0.5s;
         visibility: none;
        }
-       & div div:nth-child(2), div div:nth-child(4)  {
+       & ${TitlePokemon}, ${FotterCard}  {
         opacity: 0;
         transition-delay: 0.5s;
         visibility: none;
        }
-       & div div:nth-child(3)  {
+       & .img-svg  {
         opacity: 0.1;
+        transition-delay: 0.5s;
+       }
+       & ${StatsContainer} {        
+        opacity: 1;
         transition-delay: 0.5s;
        }
        `
@@ -35,12 +39,16 @@ export const CardContainer = styled.div`
         opacity: 1;
         transition-delay: 0.5s;
        }
-       & div div:nth-child(2), div div:nth-child(4)  {
+       & ${TitlePokemon}, ${FotterCard}  {
         opacity: 1;
         transition-delay: 0.5s;
        }
-       & div div:nth-child(3)  {
+       & .img-svg  {
         opacity: 1;
+        transition-delay: 0.5s;
+       }
+       & ${StatsContainer} {        
+        opacity: 0;
         transition-delay: 0.5s;
        }
        `};
@@ -135,8 +143,11 @@ export const ImgContainer = styled.div`
 
 export const TitlePokemon = styled.div`
   margin-top: 5px;
-  & h1::first-letter {
+  & h1::first-letter {    
     text-transform: uppercase;
+  }
+  & h1{
+    text-align: center;
   }
 `
 export const FotterCard = styled.div`
@@ -168,6 +179,47 @@ export const RotateContainer = styled.div`
     width: 30px;
     height: 30px;
     fill: black;
+  }
+`
+
+export const StatsContainer = styled.div`  
+  z-index: 102;
+  position: absolute; 
+  width: 270px;
+  height: 290px;
+  top: 0;
+  right: 0;
+  transform: rotateY(-180deg);
+  & h2{
+    margin-top: 5px;
+    text-align: center;
+  }
+`
+
+export const Progress = styled.progress`
+  opacity: 0;
+  height: 20px;
+  width: 200px;  
+`
+export const ProgressElement = styled.div`
+  width: 200px;  
+  margin: 0px auto 0px auto;
+`
+export const ProgressContainer = styled.div`  
+  border-radius: 6px;
+  overflow: hidden;  
+  position: relative;
+  display: inline-block;
+  background: #eee;
+  height: 10px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: ${props => `calc(${props.value} * 100% / 267 );`};
+    background: #02a73e;
   }
 `
 

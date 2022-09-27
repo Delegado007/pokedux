@@ -24,10 +24,12 @@ export const PokemonList = ({
             <PokemonCard
               name={pokemon.name}
               key={pokemon.name}
-              image={pokemon.image}
+              image={pokemon.image.front_default}
               type={pokemon.types}
               id={pokemon.id}
               favorite={pokemon.favorite}
+              experience={pokemon.base_experience}
+              stats={pokemon.stats}
             />
           );
         })}
@@ -45,6 +47,8 @@ export const PokemonList = ({
             type={pokemon.types}
             id={pokemon.id}
             favorite={pokemon.favorite}
+            experience={pokemon.base_experience}
+            stats={pokemon.stats}
           />
         );
       })}
