@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 const initialState = {
   pokemons: [],
   pokemonsSearched: [],
+  pokemonInPage: [],
   pagination: {
     limit: 10,
     offset: 0,
@@ -15,12 +16,12 @@ const initialState = {
 
 export const fetchPokemonsWhitDetails = createAsyncThunk(
   'data/fetchPokemonsWhitDetails',
-  async (paginationValues, { dispatch }) => {
+  async (_, { dispatch }) => {
     // dispatch loader
     // fetch
     // dispatch loader
     dispatch(setLoading(true))
-    const pokemonsRes = await getPokemon(paginationValues.limit, paginationValues.offset);
+    const pokemonsRes = await getPokemon();
     const pokemonsDetailed = await Promise.all(
       pokemonsRes.map((pokemon) => getPokemonDetails(pokemon))
     );
@@ -66,12 +67,16 @@ export const dataSlice = createSlice({
         state.pokemonsSearched = []
       }
     },
+    setPokeminInPage: (state, action) => {
+      let onlyPokemonInPage = action.payload.pokemons.slice(action.payload.paginationValues.offset, action.payload.paginationValues.limit)
+      state.pokemonInPage = onlyPokemonInPage
+    },
     setPagination: (state, action) => {
       state.pagination = action.payload
     }
   },
 });
 
-export const { setFavorite, setPokemons, setSearch, setPagination } = dataSlice.actions;
+export const { setFavorite, setPokemons, setSearch, setPokeminInPage, setPagination } = dataSlice.actions;
 
 export default dataSlice.reducer;

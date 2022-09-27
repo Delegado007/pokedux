@@ -19,7 +19,7 @@ export const Pagination = () => {
     const buttonsAsArray = [...buttons]
     let newLimit = numberButton * 10;
     let newOffset = newLimit - 10;
-    dispatch(setPagination({ limit: 10, offset: newOffset }));
+    dispatch(setPagination({ limit: newLimit, offset: newOffset }));
     buttonsAsArray.map((itemInArray) => {
       if (itemInArray === target) {
         itemInArray.className += ' active';
