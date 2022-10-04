@@ -151,6 +151,9 @@ export const TitlePokemon = styled.div`
   }
 `
 export const FotterCard = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
   margin-bottom: 10px;
 `
 
@@ -268,4 +271,15 @@ export const ProgressContainer = styled.div`
     
 `
 
+export const ImgType = styled.img`
+  width: 50px;
+  height: 50px;
+`
 
+export const TypeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  & p {
+    text-align: center;
+  }
+`

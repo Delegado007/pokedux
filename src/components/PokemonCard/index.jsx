@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { RotateCard } from "../../RotateCard";
 import { setFavorite } from "../../slices/dataSlice";
 import { StarButton } from "../StarButton";
+
 import {
   CardContainer,
   CardCover,
@@ -17,6 +18,8 @@ import {
   Progress,
   ProgressElement,
   ProgressContainer,
+  ImgType,
+  TypeContainer,
 } from "./styles";
 
 export const PokemonCard = ({
@@ -30,15 +33,11 @@ export const PokemonCard = ({
 }) => {
   const [isRotated, setIsRotated] = useState(false);
   const dispatch = useDispatch();
-  const typeSting = type.map((elem) => elem.type.name).join(", ");
-
   const handleOnFavorite = () => {
     dispatch(setFavorite({ pokemonId: id }));
   };
 
   const handleRotateCard = () => {
-    // const cardSelected = document.querySelector(`.b-game-card-${id}`);
-    // console.log(cardSelected.classList);
     setIsRotated(!isRotated);
   };
 
@@ -53,7 +52,18 @@ export const PokemonCard = ({
           <ImgSvg src={image} alt="pokemon" />
         </ImgContainer>
         <FotterCard>
-          <p>Type: {typeSting}</p>
+          {type.map((typeOfPohemon, index) => {
+            return (
+              <TypeContainer>
+                <ImgType
+                  key={index}
+                  src={`assets/${typeOfPohemon.type.name}.png`}
+                  alt={typeOfPohemon.type.name}
+                />
+                <p>{typeOfPohemon.type.name}</p>
+              </TypeContainer>
+            );
+          })}
         </FotterCard>
         <RotateContainer>
           <button onClick={() => handleRotateCard()}>

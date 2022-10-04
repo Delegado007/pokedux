@@ -1,10 +1,9 @@
 import React from "react";
 import { SVG } from "./styled";
 
-export const Star = ({ chanFavs }) => {
+export const Star = () => {
   return (
     <SVG
-      onClick={() => chanFavs()}
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
       width={30}

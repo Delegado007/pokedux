@@ -21,6 +21,7 @@ export const Lista = styled.div`
     align-items: center;
     max-width: 1300px;
     margin: 0 auto;
+    min-height: 100vh;
 
 `
 
