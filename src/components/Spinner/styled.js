@@ -31,7 +31,11 @@ export const SpinnerContainer = styled.div`
 `
 
 export const SpinnerDiv = styled.div`
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 75px);
   width: 150px;
+  height: 150px;
   aspect-ratio: 1;
   display: grid;
   border:6px solid #0000;
