@@ -42,7 +42,6 @@ export const App = () => {
           <Pagination />
         </>
       }
-
     </div>
 
   );

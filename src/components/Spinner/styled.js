@@ -14,13 +14,11 @@ const pulse = keyframes`
 `
 
 export const SpinnerContainer = styled.div`
-  position: relative;
   background-color: #353540;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  width: 100vh;
+  margin: auto;  
   height: 100vh;
   & svg {
     position: absolute;
