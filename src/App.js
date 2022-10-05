@@ -20,8 +20,8 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(setLoading(true))
+    dispatch(fetchPokemonsWhitDetails(paginationValues));
     setTimeout(() => {
-      dispatch(fetchPokemonsWhitDetails(paginationValues));
       dispatch(setLoading(false))
     }, 2000)
   }, [dispatch]);
@@ -39,7 +39,8 @@ export const App = () => {
           <Logo />
           <Searcher />
           <PokemonList pokemons={pokemonInPage} searchedPokemons={searchedPokemons} valueImputSearch={valueImputSearch} />
-          <Pagination />
+          {valueImputSearch.length < 2 && <Pagination />}
+
         </>
       }
     </div>

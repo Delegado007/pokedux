@@ -8,7 +8,7 @@ export const PokemonList = ({
   searchedPokemons,
   valueImputSearch,
 }) => {
-  if (valueImputSearch.length > 0 && searchedPokemons.length < 1) {
+  if (valueImputSearch.length > 1 && searchedPokemons.length < 1) {
     return (
       <Div>
         <Span>Nothing found, try searching again.</Span>

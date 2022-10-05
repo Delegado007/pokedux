@@ -24,7 +24,7 @@ export const CardContainer = styled.div`
         visibility: none;
        }
        & .img-svg  {
-        opacity: 0.1;
+        opacity: 0.15;
         transition-delay: 0.3s;
        }
        & ${StatsContainer} {        

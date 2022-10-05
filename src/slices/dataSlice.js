@@ -1,8 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { setLoading } from './uiSlice';
 import { getPokemon, getPokemonDetails } from "../api";
-import { useSelector } from "react-redux";
-// import { setSearch } from "./searchSlice";
 
 const initialState = {
   pokemons: [],
@@ -17,10 +14,6 @@ const initialState = {
 export const fetchPokemonsWhitDetails = createAsyncThunk(
   'data/fetchPokemonsWhitDetails',
   async (_, { dispatch }) => {
-    // dispatch loader
-    // fetch
-    // dispatch loader
-    dispatch(setLoading(true))
     const pokemonsRes = await getPokemon();
     const pokemonsDetailed = await Promise.all(
       pokemonsRes.map((pokemon) => getPokemonDetails(pokemon))
@@ -32,7 +25,6 @@ export const fetchPokemonsWhitDetails = createAsyncThunk(
       pokemones.push({ name, id, types, image: front_default, stats, weight, base_experience });
     })
     dispatch(setPokemons(pokemones));
-    dispatch(setLoading(false));
   }
 );
 
@@ -56,7 +48,7 @@ export const dataSlice = createSlice({
     },
     setSearch: (state, action) => {
       const imputValue = action.payload.toLocaleLowerCase();
-      if (action.payload.length > 0) {
+      if (action.payload.length > 1) {
         const result = state.pokemons.filter(
           (pokemon) => {
             return pokemon.name.includes(imputValue)
