@@ -1,10 +1,13 @@
 import React from "react";
-import { SpinnerContainer } from "./styled";
+import { CharizardSpinner } from "../CharizardSpinner";
+import { SpinnerContainer, SpinnerDiv } from "./styled";
 
 export const Spinner = () => {
   return (
     <SpinnerContainer>
-      <h1>Spinner!!!</h1>
+      <CharizardSpinner />
+      <SpinnerDiv>
+      </SpinnerDiv>
     </SpinnerContainer>
   )
 }
