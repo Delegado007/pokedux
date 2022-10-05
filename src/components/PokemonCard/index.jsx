@@ -20,6 +20,7 @@ import {
   ProgressContainer,
   ImgType,
   TypeContainer,
+  ImgContainerStat,
 } from "./styles";
 
 export const PokemonCard = ({
@@ -71,24 +72,34 @@ export const PokemonCard = ({
           </button>
         </RotateContainer>
         <StatsContainer>
+          <h2>Stats</h2>
           <ProgressElement value={experience}>
-            <h2>Stats</h2>
-            <p>{experience} xp</p>
-            <ProgressContainer>
-              <Progress max="265" value={experience}>
-                {experience}
-              </Progress>
-            </ProgressContainer>
+            <ImgContainerStat>
+              <img src="assets/exp.png" alt="atack" />
+            </ImgContainerStat>
+            <div className="stats-pokemon">
+              <p>{experience} xp</p>
+              <ProgressContainer>
+                <Progress max="265" value={experience}>
+                  {experience}
+                </Progress>
+              </ProgressContainer>
+            </div>
           </ProgressElement>
           {stats.map((stat) => {
             return (
               <ProgressElement key={stat.stat.name} value={stat.base_stat}>
-                <p>{`${stat.base_stat} ${stat.stat.name}`}</p>
-                <ProgressContainer>
-                  <Progress max="110" value={stat.base_stat}>
-                    {stat.base_stat}
-                  </Progress>
-                </ProgressContainer>
+                <ImgContainerStat>
+                  <img src={`assets/${stat.stat.name}.png`} alt="atack" />
+                </ImgContainerStat>
+                <div className="stats-pokemon">
+                  <p>{`${stat.base_stat} ${stat.stat.name}`}</p>
+                  <ProgressContainer>
+                    <Progress max="110" value={stat.base_stat}>
+                      {stat.base_stat}
+                    </Progress>
+                  </ProgressContainer>
+                </div>
               </ProgressElement>
             );
           })}

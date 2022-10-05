@@ -142,7 +142,7 @@ export const ImgContainer = styled.div`
 `
 
 export const TitlePokemon = styled.div`
-  margin-top: 5px;
+  margin-top: 10px;
   & h1::first-letter {    
     text-transform: uppercase;
   }
@@ -203,56 +203,65 @@ export const StatsContainer = styled.div`
 export const Progress = styled.progress`
   opacity: 0;
   height: 20px;
-  width: 200px;  
+  width: 170px;  
 `
 export const ProgressElement = styled.div`
-  width: 200px;  
+  display: flex;
+  width: 230px;  
   margin: auto;
-  &:nth-child(1) div {
+  & div img {
+    height: 36px;
+  }
+  &:nth-child(2) .stats-pokemon div {
     &::before{
       background: #000;
       width: ${props => `calc(${props.value} * 100% / 267 );`};
     }
   }
-  &:nth-child(2) div {
+  &:nth-child(3) .stats-pokemon div  {
     &::before{
       background: #02A73E;
       width: ${props => `calc(${props.value} * 100% / 250);`};
     }
   }
-  &:nth-child(3) div {
+  &:nth-child(4) .stats-pokemon div  {
     &::before{
       background: red;
       width: ${props => `calc(${props.value} * 100% / 134);`};
     } 
   }
-  &:nth-child(4) div {
+  &:nth-child(5) .stats-pokemon div  {
     &::before{
       background: #FDF21B;
       width: ${props => `calc(${props.value} * 100% / 180);`};
     } 
   }
-  &:nth-child(5) div {
+  &:nth-child(6) .stats-pokemon div  {
     &::before{
       background: #40B3FF;
       width: ${props => `calc(${props.value} * 100% / 154);`};
 
     } 
   }
-  &:nth-child(6) div {
+  &:nth-child(7) .stats-pokemon div  {
     &::before{
       background: #8C40FF;
       width: ${props => `calc(${props.value} * 100% / 125);`};
 
     } 
   }
-  &:nth-child(7) div {
+  &:nth-child(8) .stats-pokemon div  {
     &::before{
       background: #FF9340;
       width: ${props => `calc(${props.value} * 100% / 130);`};
     } 
   }
 `
+
+export const ImgContainerStat = styled.div`
+  width: 50px;
+`
+
 export const ProgressContainer = styled.div`  
   border-radius: 6px;
   overflow: hidden;
