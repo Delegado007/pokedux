@@ -23,7 +23,7 @@ export const App = () => {
     setTimeout(() => {
       dispatch(fetchPokemonsWhitDetails(paginationValues));
       dispatch(setLoading(false))
-    }, 0)
+    }, 2000)
   }, [dispatch]);
 
   useEffect(() => {
