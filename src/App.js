@@ -8,6 +8,7 @@ import { fetchPokemonsWhitDetails, setPokeminInPage } from './slices/dataSlice';
 import { setLoading } from './slices/uiSlice';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { Pagination } from './components/Pagination';
+import { usePagination } from './Hooks/usePagination';
 
 export const App = () => {
   const pokemons = useSelector((state) => state.data.pokemons, shallowEqual);
@@ -15,21 +16,22 @@ export const App = () => {
   const pokemonInPage = useSelector((state) => state.data.pokemonInPage, shallowEqual);
   const valueImputSearch = useSelector((state) => state.ui.valueImputSearch);
   const isLoading = useSelector((state) => state.ui.loading);
-  const paginationValues = useSelector((state) => state.data.pagination);
+  const paginationValues = useSelector((state) => state.pagination.pagination);
   const dispatch = useDispatch();
+  const props = usePagination();
 
   useEffect(() => {
     dispatch(setLoading(true))
     dispatch(fetchPokemonsWhitDetails(paginationValues));
     setTimeout(() => {
       dispatch(setLoading(false))
-    }, 2000)
+    }, 0)
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(setPokeminInPage({ paginationValues, pokemons }));
   }, [paginationValues, pokemons])
-  console.log(isLoading)
+
   return (
     <div className="App">
       <GlobalStyles />
@@ -38,8 +40,9 @@ export const App = () => {
         : <>
           <Logo />
           <Searcher />
+          {valueImputSearch.length < 2 && <Pagination {...props} />}
           <PokemonList pokemons={pokemonInPage} searchedPokemons={searchedPokemons} valueImputSearch={valueImputSearch} />
-          {valueImputSearch.length < 2 && <Pagination />}
+          {valueImputSearch.length < 2 && <Pagination {...props} />}
 
         </>
       }

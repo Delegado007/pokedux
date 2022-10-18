@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { RotateCard } from "../../RotateCard";
@@ -55,9 +54,8 @@ export const PokemonCard = ({
         <FotterCard>
           {type.map((typeOfPohemon, index) => {
             return (
-              <TypeContainer>
+              <TypeContainer key={index}>
                 <ImgType
-                  key={index}
                   src={`assets/${typeOfPohemon.type.name}.png`}
                   alt={typeOfPohemon.type.name}
                 />
@@ -86,9 +84,9 @@ export const PokemonCard = ({
               </ProgressContainer>
             </div>
           </ProgressElement>
-          {stats.map((stat) => {
+          {stats.map((stat, index) => {
             return (
-              <ProgressElement key={stat.stat.name} value={stat.base_stat}>
+              <ProgressElement key={index} value={stat.base_stat}>
                 <ImgContainerStat>
                   <img src={`assets/${stat.stat.name}.png`} alt="atack" />
                 </ImgContainerStat>

@@ -1,25 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PaginationContainer, ButtonPagination } from './styles';
-import { setPagination } from '../../slices/dataSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { setPagination } from '../../slices/paginationSlice';
+import { useDispatch } from 'react-redux';
 
-export const Pagination = () => {
-  const [isActive, setIsActive] = useState("true");
-  const pagination = useSelector((state) => state.data.pagination);
-  const dispatch = useDispatch();
+
+export const Pagination = (
+  {
+    nextPage,
+    prevPage,
+    countPokemones,
+    actualPage,
+    arrayPagination,
+    handleChangePagination,
+    renderArray,
+  }
+) => {
 
   useEffect(() => {
-    const buttons = document.querySelector(`.button_pag`);
-    buttons.className += ' active';
-  }, [])
+    if (renderArray.length > 1) {
+      const buttons = document.querySelectorAll(`.button_pag`);
+      const buttonsAsArray = [...buttons];
+      buttonsAsArray.map((itemInArray) => {
+        if (itemInArray.innerHTML == actualPage) {
+          itemInArray.className += ' active';
+        } else {
+          itemInArray.classList.remove("active");
+        }
+      })
+    }
+
+  }, [renderArray])
 
 
-  const chnageLimitAndOffset = (target, numberButton) => {
+  const handlePagination = (target, numberButton) => {
     const buttons = document.querySelectorAll(`.button_pag`);
-    const buttonsAsArray = [...buttons]
-    let newLimit = numberButton * 10;
-    let newOffset = newLimit - 10;
-    dispatch(setPagination({ limit: newLimit, offset: newOffset }));
+    const buttonsAsArray = [...buttons];
     buttonsAsArray.map((itemInArray) => {
       if (itemInArray === target) {
         itemInArray.className += ' active';
@@ -27,15 +42,14 @@ export const Pagination = () => {
         itemInArray.classList.remove("active");
       }
     })
-
+    handleChangePagination(numberButton);
   }
   return (
     <PaginationContainer>
-      {[1, 2, 3, 4, 5].map((number, index) => (
-
+      {renderArray.map((number, index) => (
         <ButtonPagination key={index}>
           <a href="#list_pokemons">
-            <button className={`button_pag`} onClick={(event) => chnageLimitAndOffset(event.target, number)} >{number}</button>
+            <button className={`button_pag`} onClick={(event) => handlePagination(event.target, number)} >{number + 1}</button>
           </a>
         </ButtonPagination>
       ))

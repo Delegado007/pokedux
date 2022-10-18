@@ -5,10 +5,7 @@ const initialState = {
   pokemons: [],
   pokemonsSearched: [],
   pokemonInPage: [],
-  pagination: {
-    limit: 10,
-    offset: 0,
-  },
+  countPokemones: 0,
 }
 
 export const fetchPokemonsWhitDetails = createAsyncThunk(
@@ -25,6 +22,8 @@ export const fetchPokemonsWhitDetails = createAsyncThunk(
       pokemones.push({ name, id, types, image: front_default, stats, weight, base_experience });
     })
     dispatch(setPokemons(pokemones));
+    let countPokes = pokemones.length
+    dispatch(setCountPokemones(countPokes))
   }
 );
 
@@ -63,12 +62,12 @@ export const dataSlice = createSlice({
       let onlyPokemonInPage = action.payload.pokemons.slice(action.payload.paginationValues.offset, action.payload.paginationValues.limit)
       state.pokemonInPage = onlyPokemonInPage
     },
-    setPagination: (state, action) => {
-      state.pagination = action.payload
-    }
+    setCountPokemones: (state, action) => {
+      state.countPokemones = action.payload
+    },
   },
 });
 
-export const { setFavorite, setPokemons, setSearch, setPokeminInPage, setPagination } = dataSlice.actions;
+export const { setFavorite, setPokemons, setSearch, setPokeminInPage, setCountPokemones } = dataSlice.actions;
 
 export default dataSlice.reducer;
