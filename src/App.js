@@ -44,7 +44,7 @@ export const App = () => {
           {valueImputSearch.length < 2 && <Pagination {...props} />}
           <PokemonList pokemons={pokemonInPage} searchedPokemons={searchedPokemons} valueImputSearch={valueImputSearch} />
           {valueImputSearch.length < 2 && <Pagination {...props} />}
-          {/* <Footer /> */}
+          <Footer />
         </>
       }
     </div>

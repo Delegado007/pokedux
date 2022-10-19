@@ -1,13 +1,32 @@
 import React from "react";
-import { ContainerFooter, MaxWidthContainer } from "./styles";
+import { GitHub } from "../GitHub";
+import { Linkedin } from "../Linkedin";
+import {
+  ContainerFooter,
+  MaxWidthContainer,
+  DeveloperBy,
+  LinksRedes,
+} from "./styles";
 
 export const Footer = () => {
   return (
     <ContainerFooter>
       <MaxWidthContainer>
-        <h2>Este es el footer</h2>
-        <p>Desarrollado por DelegadoDev</p>
+        <DeveloperBy>
+          <p>Developer by <strong style={{ color: "#FDA284" }}>DelegadoDev</strong></p>
+          <p>subiris.4116@gmail.com</p>
+        </DeveloperBy>
+        <LinksRedes>
+          <div>
+            <p>Linkedin</p>
+            <Linkedin />
+          </div>
+          <div>
+            <p>GitHub</p>
+            <GitHub />
+          </div>
+        </LinksRedes>
       </MaxWidthContainer>
-    </ContainerFooter>
+    </ContainerFooter >
   )
 }
