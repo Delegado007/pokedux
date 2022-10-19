@@ -30,6 +30,9 @@ export const ButtonPagination = styled.div`
       background-color: #DEDEE3;
     }
   }
+  & button:disabled {
+    opacity: 0.35;
+  }
   & a {
     margin: 5px;
     height: 50px;

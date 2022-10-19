@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { PaginationContainer, ButtonPagination } from './styles';
-import { setPagination } from '../../slices/paginationSlice';
-import { useDispatch } from 'react-redux';
-
+import { useSelector } from 'react-redux';
 
 export const Pagination = (
   {
-    nextPage,
-    prevPage,
-    countPokemones,
-    actualPage,
-    arrayPagination,
-    handleChangePagination,
     renderArray,
+    totalPages,
+    actualPage,
+    handleChangePagination,
+    handlePrevPage,
+    handleNextPage,
   }
 ) => {
+  const [disableNextButton, setDisableNextButton] = useState(false)
+  const [disablePrevButton, setDisablePrevButton] = useState(false)
+  const pagination = useSelector((state) => state.pagination);
 
   useEffect(() => {
     if (renderArray.length > 1) {
@@ -28,9 +28,17 @@ export const Pagination = (
         }
       })
     }
-
+    if (totalPages === actualPage) {
+      setDisableNextButton(true)
+    } else {
+      setDisableNextButton(false)
+    }
+    if (actualPage === 1) {
+      setDisablePrevButton(true)
+    } else {
+      setDisablePrevButton(false)
+    }
   }, [renderArray])
-
 
   const handlePagination = (target, numberButton) => {
     const buttons = document.querySelectorAll(`.button_pag`);
@@ -44,8 +52,14 @@ export const Pagination = (
     })
     handleChangePagination(numberButton);
   }
+
   return (
     <PaginationContainer>
+      <ButtonPagination>
+        <a href="#list_pokemons">
+          <button className={`button_prev`} disabled={disablePrevButton} onClick={() => handlePrevPage()} >{"<"}</button>
+        </a>
+      </ButtonPagination>
       {renderArray.map((number, index) => (
         <ButtonPagination key={index}>
           <a href="#list_pokemons">
@@ -54,6 +68,11 @@ export const Pagination = (
         </ButtonPagination>
       ))
       }
+      <ButtonPagination>
+        <a href="#list_pokemons">
+          <button className={`button_next`} disabled={disableNextButton} onClick={() => handleNextPage()} >{">"}</button>
+        </a>
+      </ButtonPagination>
     </PaginationContainer>
   )
 }
