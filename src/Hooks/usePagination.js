@@ -15,16 +15,16 @@ export const usePagination = () => {
   let renderArray = []
   if (totalPages == actualPage) {
     renderArray = arrayPagination.slice(-3);
-    dispatch(setNextPage(false))
+    dispatch(setNextPage(true))
   }
   if (actualPage == 1) {
     renderArray = arrayPagination.slice(0, 3);
-    dispatch(setPrevPage(false))
+    dispatch(setPrevPage(true))
   }
   if (actualPage != 1 & actualPage != totalPages) {
     renderArray = arrayPagination.slice(actualPage - 2, actualPage + 1)
-    dispatch(setPrevPage(true))
-    dispatch(setNextPage(true))
+    dispatch(setPrevPage(false))
+    dispatch(setNextPage(false))
   }
   const handleChangePagination = (numberButton) => {
     const newLimit = (numberButton + 1) * 10;
@@ -53,7 +53,6 @@ export const usePagination = () => {
 
   return {
     renderArray,
-    totalPages,
     actualPage,
     handleChangePagination,
     handlePrevPage,

@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  nextPage: null,
-  prevPage: null,
+  nextPage: false,
+  prevPage: false,
   pagination: {
     limit: 10,
     offset: 0,
