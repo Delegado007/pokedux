@@ -4,8 +4,7 @@ export const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 50px;
-  width: 100vw;
-  margin-bottom: 15px;   
+  width: 100vw; 
 `
 
 export const ButtonPagination = styled.div`

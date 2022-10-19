@@ -3,11 +3,12 @@ import { Logo } from './components/Logo';
 import { Searcher } from './components/Search';
 import { PokemonList } from './components/ListOfPokemon';
 import { Spinner } from './components/Spinner';
+import { Pagination } from './components/Pagination';
+import { Footer } from './components/Footer';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { fetchPokemonsWhitDetails, setPokeminInPage } from './slices/dataSlice';
 import { setLoading } from './slices/uiSlice';
 import { GlobalStyles } from './styles/GlobalStyles';
-import { Pagination } from './components/Pagination';
 import { usePagination } from './Hooks/usePagination';
 
 export const App = () => {
@@ -25,7 +26,7 @@ export const App = () => {
     dispatch(fetchPokemonsWhitDetails(paginationValues));
     setTimeout(() => {
       dispatch(setLoading(false))
-    }, 0)
+    }, 2000)
   }, [dispatch]);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ export const App = () => {
           {valueImputSearch.length < 2 && <Pagination {...props} />}
           <PokemonList pokemons={pokemonInPage} searchedPokemons={searchedPokemons} valueImputSearch={valueImputSearch} />
           {valueImputSearch.length < 2 && <Pagination {...props} />}
-
+          {/* <Footer /> */}
         </>
       }
     </div>
