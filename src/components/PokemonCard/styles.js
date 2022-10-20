@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { pulse } from '../../styles/animations';
+
 
 export const CardContainer = styled.div`
   position: relative;
@@ -134,6 +136,19 @@ export const ImgSvg = styled.img`
   max-width: fit-content;
   max-width: -moz-available;
   max-width: -webkit-fill-available;
+`
+
+export const PlaceholderImgSvg = styled.div`
+  display: block;
+  margin: auto;
+  height: 100%;
+  width: auto;
+  max-width: fit-content;
+  max-width: -moz-available;
+  max-width: -webkit-fill-available;
+  border-radius: 25px;
+  background-color: #FDA284;
+  animation: ${pulse} 2.5s infinite;
 `
 
 export const ImgContainer = styled.div`

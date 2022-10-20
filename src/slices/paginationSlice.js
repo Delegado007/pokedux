@@ -4,7 +4,7 @@ const initialState = {
   nextPage: false,
   prevPage: false,
   pagination: {
-    limit: 10,
+    limit: 12,
     offset: 0,
   },
 }

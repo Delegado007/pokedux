@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { RotateCard } from "../../RotateCard";
 import { setFavorite } from "../../slices/dataSlice";
@@ -18,6 +18,7 @@ import {
   ProgressElement,
   ProgressContainer,
   ImgType,
+  PlaceholderImgSvg,
   TypeContainer,
   ImgContainerStat,
 } from "./styles";
@@ -31,6 +32,7 @@ export const PokemonCard = ({
   experience,
   stats,
 }) => {
+  const [imgPromise, setImgPromise] = useState("");
   const [isRotated, setIsRotated] = useState(false);
   const dispatch = useDispatch();
   const handleOnFavorite = () => {
@@ -41,6 +43,15 @@ export const PokemonCard = ({
     setIsRotated(!isRotated);
   };
 
+  useEffect(() => {
+    fetch(image)
+      .then((response) => response.blob())
+      .then((imageBlob) => {
+        setImgPromise(URL.createObjectURL(imageBlob));
+      });
+  }, [image]);
+  console.log(imgPromise);
+
   return (
     <CardContainer open={isRotated} className={`b-game-card-${id}`}>
       <CardCover className="b-game-card">
@@ -49,7 +60,11 @@ export const PokemonCard = ({
           <h1>{name}</h1>
         </TitlePokemon>
         <ImgContainer className="img-svg">
-          <ImgSvg src={image} alt="pokemon" />
+          {imgPromise.length > 0 ? (
+            <ImgSvg src={imgPromise} alt="pokemon" />
+          ) : (
+            <PlaceholderImgSvg />
+          )}
         </ImgContainer>
         <FotterCard>
           {type.map((typeOfPohemon, index) => {
