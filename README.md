@@ -8,6 +8,10 @@ Pokedux nace como necesidad de implementar [Redux](https://es.redux.js.org/) y h
 - Consumiendo la [PokeApi](https://pokeapi.co/) 
 - Deployado en [Netlify](https://www.netlify.com/)
 
+## Empaquetado con Webpack
+
+Elegí usar [Webpack](https://webpack.js.org/) con el fin de poder empequetar el código, parsearlo y minificarlo, optimizando tiempos de carga y asegurando una perfecta compatibilidad con la mayoria de navegadores gracias a [Babel](https://babeljs.io/).
+
 ## Available Scripts
 
 In the project directory, you can run:
